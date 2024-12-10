@@ -101,5 +101,46 @@ class DBHelper {
     "INSERT INTO COMIDAS (id, titulo, descricao, url_imagem, categoria) VALUES (20, 'CACHORRO QUENTE','Salsicha e carne moída.','https://tse4.mm.bing.net/th?id=OIP.MdPXHO78FlbUqc-fcwLm-gHaFj&pid=Api&P=0&h=180','Salgados');";
     await db.execute(sql);
 
+    _inserirDadosIniciaisYasmin(db);
+  }
+
+  // Função para inserir dados iniciais na tabela PACOTE
+  Future<void> _inserirDadosIniciaisYasmin(Database db) async {
+    String sql;
+
+
+    sql = 'CREATE TABLE PRODUTO (id INTEGER PRIMARY KEY AUTOINCREMENT, titulo VARCHAR(100), url_image VARCHAR(255), valor DOUBLE, quantidade INTEGER);';
+    await db.execute(sql);
+
+    // Inserção de produtos na tabela PRODUTO
+    sql = '''
+    INSERT INTO PRODUTO (id, titulo, url_image, valor, quantidade) VALUES 
+      (1, 'TAPIOCA', 'https://www.receiteria.com.br/wp-content/uploads/como-fazer-tapioca-00-1.jpg', 1.99, 1);
+    ''';
+    await db.execute(sql);
+
+    sql = '''
+    INSERT INTO PRODUTO (id, titulo, url_image, valor, quantidade) VALUES 
+      (2, 'PÃO DE QUEIJO', 'https://i1.wp.com/ncultura.pt/wp-content/uploads/2017/11/shutterstock-579999919-e1510831911710.jpg?fit=2000%2C1335&ssl=1', 0.50, 1);
+    ''';
+    await db.execute(sql);
+
+    sql = '''
+    INSERT INTO PRODUTO (id, titulo, url_image, valor, quantidade) VALUES 
+      (3, 'CUSCUZ RECHEADO', 'https://www.deline.com.br/assets/images/recipes/cuscuz-recheado-de-frango/mobile/thumb-video.jpg', 1.99, 1);
+    ''';
+    await db.execute(sql);
+
+    sql = '''
+    INSERT INTO PRODUTO (id, titulo, url_image, valor, quantidade) VALUES 
+      (4, 'BOLO COMUM', 'https://img.cybercook.com.br/receitas/940/bolo-do-coco-low-carb.jpeg', 1.99, 1);
+    ''';
+    await db.execute(sql);
+
+    sql = '''
+    INSERT INTO PRODUTO (id, titulo, url_image, valor, quantidade) VALUES 
+      (5, 'FRUTAS', 'https://www.somosmamas.com.ar/wp-content/uploads/2020/03/que-son-las-frutas-1-scaled.jpg', 0.50, 1);
+    ''';
+    await db.execute(sql);
   }
 }
