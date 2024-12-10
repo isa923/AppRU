@@ -1,9 +1,23 @@
 import 'package:flutter/material.dart';
-import 'package:untitled/pages/TelaCategoria.dart';
-import 'package:untitled/pages/TelaLogo.dart';
+import 'package:untitled/cadastro.dart';
+
 
 void main() {
-  runApp(
-    const MaterialApp(home: TelaCategoria()),
-  );
+  runApp(const MyApp());
 }
+
+
+class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: CadastroScreen(),
+    );
+  }
+}
+
+
