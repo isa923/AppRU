@@ -101,5 +101,13 @@ class DBHelper {
     "INSERT INTO COMIDAS (id, titulo, descricao, url_imagem, categoria) VALUES (20, 'CACHORRO QUENTE','Salsicha e carne moída.','https://tse4.mm.bing.net/th?id=OIP.MdPXHO78FlbUqc-fcwLm-gHaFj&pid=Api&P=0&h=180','Salgados');";
     await db.execute(sql);
 
+    sql = "CREATE TABLE USER (username varchar(100) PRIMARY KEY, password varchar(100))";
+    await db.execute(sql);
+
+    sql = "INSERT INTO USER (username, password) VALUES ('joao@gmail.com', '123456')";
+    await db.execute(sql);
+
+
+
   }
 }
