@@ -100,6 +100,22 @@ class DBHelper {
     sql =
     "INSERT INTO COMIDAS (id, titulo, descricao, url_imagem, categoria) VALUES (20, 'CACHORRO QUENTE','Salsicha e carne moída.','https://tse4.mm.bing.net/th?id=OIP.MdPXHO78FlbUqc-fcwLm-gHaFj&pid=Api&P=0&h=180','Salgados');";
     await db.execute(sql);
+  
 
+    sql =
+        'CREATE TABLE CARTOES ( id INTEGER PRIMARY KEY AUTOINCREMENT, nome_titular TEXT, numero_cartao TEXT, validade TEXT, cvv TEXT, cpf TEXT );';
+    await db.execute(sql);
+
+
+    sql =
+        "INSERT INTO CARTOES (nome_titular, numero_cartao, validade, cvv, cpf) VALUES ('João José Santos', '123456', '20/2025', '123', '23654412345');";
+    await db.execute(sql);
+
+
+    sql =
+        "INSERT INTO CARTOES (nome_titular, numero_cartao, validade, cvv, cpf) VALUES ('Marcos Felipe', '112233', '10/2034', '321', '23654422222');";
+    await db.execute(sql);
   }
 }
+
+
