@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:untitled/db/db_helper.dart';
 import 'package:untitled/db/produto_dao.dart';
 import 'package:untitled/domain/produtos.dart';
 
@@ -21,7 +20,6 @@ class _CadastroProdutoPageState extends State<CadastroProdutoPage> {
     final quantidade = int.tryParse(_quantidadeController.text) ?? 1;
 
     if (urlImagem.isEmpty || titulo.isEmpty || valor <= 0 || quantidade <= 0) {
-      // Mostrar alerta de campos obrigatórios
       return;
     }
 

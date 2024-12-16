@@ -104,7 +104,6 @@ class DBHelper {
     _inserirDadosIniciaisYasmin(db);
   }
 
-  // Função para inserir dados iniciais na tabela PACOTE
   Future<void> _inserirDadosIniciaisYasmin(Database db) async {
     String sql;
 
@@ -112,7 +111,6 @@ class DBHelper {
     sql = 'CREATE TABLE PRODUTO (id INTEGER PRIMARY KEY AUTOINCREMENT, titulo VARCHAR(100), url_image VARCHAR(255), valor DOUBLE, quantidade INTEGER);';
     await db.execute(sql);
 
-    // Inserção de produtos na tabela PRODUTO
     sql = '''
     INSERT INTO PRODUTO (id, titulo, url_image, valor, quantidade) VALUES 
       (1, 'TAPIOCA', 'https://www.receiteria.com.br/wp-content/uploads/como-fazer-tapioca-00-1.jpg', 1.99, 1);
