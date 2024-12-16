@@ -102,19 +102,7 @@ class DBHelper {
     await db.execute(sql);
   
 
-    sql =
-        'CREATE TABLE CARTOES ( id INTEGER PRIMARY KEY AUTOINCREMENT, nome_titular TEXT, numero_cartao TEXT, validade TEXT, cvv TEXT, cpf TEXT );';
-    await db.execute(sql);
-
-
-    sql =
-        "INSERT INTO CARTOES (nome_titular, numero_cartao, validade, cvv, cpf) VALUES ('João José Santos', '123456', '20/2025', '123', '23654412345');";
-    await db.execute(sql);
-
-
-    sql =
-        "INSERT INTO CARTOES (nome_titular, numero_cartao, validade, cvv, cpf) VALUES ('Marcos Felipe', '112233', '10/2034', '321', '23654422222');";
-    await db.execute(sql);
+  
   }
 }
 
