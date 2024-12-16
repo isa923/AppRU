@@ -1,23 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:untitled/cadastro.dart';
+import 'package:my_app/pages/listar_cartoes.dart';
 
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    MaterialApp(
+      home: ListarCartoes(),
+    ),
+  );
 }
-
-
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
-
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: CadastroScreen(),
-    );
-  }
-}
-
-
