@@ -100,6 +100,10 @@ class DBHelper {
     sql =
     "INSERT INTO COMIDAS (id, titulo, descricao, url_imagem, categoria) VALUES (20, 'CACHORRO QUENTE','Salsicha e carne moída.','https://tse4.mm.bing.net/th?id=OIP.MdPXHO78FlbUqc-fcwLm-gHaFj&pid=Api&P=0&h=180','Salgados');";
     await db.execute(sql);
+  
 
+  
   }
 }
+
+
