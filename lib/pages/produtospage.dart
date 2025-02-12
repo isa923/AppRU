@@ -99,14 +99,12 @@ class _ProdutosPageState extends State<ProdutosPage> {
                           IconButton(
                             icon: const Icon(Icons.shopping_cart, size: 20),
                             onPressed: () {
-                              // Lógica para adicionar ao carrinho
                             },
                           ),
                         ],
                       ),
                       TextButton(
                         onPressed: () {
-                          // Lógica para escolher o recheio
                         },
                         child: const Text(
                           'Escolher Recheio',

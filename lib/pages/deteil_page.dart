@@ -1,14 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:geocoding/geocoding.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:untitled/pages/estrutura_produtos.dart';
+import 'package:untitled/pages/map_pageYas.dart';
 import 'package:untitled/pages/produtospage.dart';
 
 class DateilPage extends StatefulWidget {
   const DateilPage({super.key});
 
   @override
-  State<DateilPage> createState() => _DetailPageState();
+  State createState() => _DetailPageState();
 }
 
-class _DetailPageState extends State<DateilPage> {
+class _DetailPageState extends State {
+  TextEditingController _locationController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,12 +36,13 @@ class _DetailPageState extends State<DateilPage> {
         child: Column(
           children: [
             TextField(
+              controller: _locationController,
               decoration: InputDecoration(
-                hintText: 'BUSQUE POR ITEM AQUI',
+                hintText: 'Digite a cidade ou país',
                 border: OutlineInputBorder(),
                 suffixIcon: Icon(
-                  Icons.search,
-                  size: 40,
+                  Icons.location_on,
+                  size: 30,
                 ),
                 fillColor: Colors.grey[400],
                 filled: true,
@@ -43,6 +50,42 @@ class _DetailPageState extends State<DateilPage> {
                 EdgeInsets.symmetric(vertical: 15.0, horizontal: 10.0),
               ),
             ),
+            SizedBox(height: 16),
+            TextButton(
+              onPressed: () async {
+                String locationQuery = _locationController.text;
+                if (locationQuery.isNotEmpty) {
+                  try {
+                    List locations = await locationFromAddress(locationQuery);
+                    print(locations);
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) {
+                          return MapPageYas(location: locations[0]);
+                        },
+                      ),
+                    );
+                  } catch (e) {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(content: Text('Localização não encontrada. Tente novamente.')),
+                    );
+                  }
+                } else {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(content: Text('Digite uma cidade ou país antes de pesquisar.')),
+                  );
+                }
+              },
+              child: Text(
+                'Ver no mapa',
+                style: GoogleFonts.montserrat(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
+            ),
+            SizedBox(height: 16),
             Expanded(
               child: ListView(
                 scrollDirection: Axis.vertical,
@@ -76,7 +119,7 @@ class _DetailPageState extends State<DateilPage> {
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (context) => ProdutosPage(),
+                                    builder: (context) => EstruturaProdutos(),
                                   ),
                                 );
                               },
@@ -85,7 +128,7 @@ class _DetailPageState extends State<DateilPage> {
                                   ClipRRect(
                                     borderRadius: BorderRadius.circular(10.0),
                                     child: Image.network(
-                                      'https://diaonline.ig.com.br/wp-content/uploads/2019/06/caf-da-manh-em-Braslia_capa-e1560882564741.jpg   ',
+                                      'https://diaonline.ig.com.br/wp-content/uploads/2019/06/caf-da-manh-em-Braslia_capa-e1560882564741.jpg',
                                       height: 85,
                                     ),
                                   ),
@@ -183,7 +226,7 @@ class _DetailPageState extends State<DateilPage> {
                                   ClipRRect(
                                     borderRadius: BorderRadius.circular(10.0),
                                     child: Image.network(
-                                      'https://cdn0.casamentos.com.br/vendor/8920/3_2/960/jpg/opcoes-de-doces-para-substituir-o-bem-casado-pao-de-mel-para-casamentos_13_268920-158169604631284.jpeg',
+                                      'https://tse3.mm.bing.net/th?id=OIP.sNKm9z-fJirUj9SOG3I0kwHaE9&pid=Api&P=0&h=180',
                                       height: 85,
                                     ),
                                   ),
@@ -231,6 +274,7 @@ class _DetailPageState extends State<DateilPage> {
           ],
         ),
       ),
+
       bottomNavigationBar: BottomAppBar(
         color: Colors.transparent,
         shadowColor: Colors.transparent,
@@ -240,7 +284,7 @@ class _DetailPageState extends State<DateilPage> {
           padding: EdgeInsets.symmetric(horizontal: 20.0),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: <Widget>[
+            children: [
               IconButton(
                 icon: Icon(
                   Icons.shopping_cart_outlined,
@@ -269,3 +313,4 @@ class _DetailPageState extends State<DateilPage> {
     );
   }
 }
+
