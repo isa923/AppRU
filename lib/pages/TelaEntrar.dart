@@ -9,8 +9,7 @@ class TelaEntrar extends StatefulWidget {
 }
 
 class _TelaEntrarState extends State<TelaEntrar> {
-  TextEditingController emailController =
-  TextEditingController(); //São controladores para capturar os valores inseridos nos campos de e-mail e senha, respectivamente.
+  TextEditingController emailController = TextEditingController();
   TextEditingController senhaController = TextEditingController();
 
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
@@ -24,7 +23,6 @@ class _TelaEntrarState extends State<TelaEntrar> {
             child: Form(
               key: formKey,
               child: ListView(
-                //organizar os widgts e criei o chlidren para exibir os dados
                 children: [
                   Center(
                     child: Image.asset(
@@ -38,10 +36,9 @@ class _TelaEntrarState extends State<TelaEntrar> {
                       EdgeInsets.symmetric(vertical: 40, horizontal: 16),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment
-                            .stretch, //faz com que o conteudo se estique para preencher a largura disponivel
+                            .stretch,
                         children: [
                           TextFormField(
-                            // Cria um campo de texto que permite ao usuário inserir informações. Ele faz parte dos widgets de formulário que incluem validação, além de poder ser integrado com controladores para gerenciar os dados inseridos.
                             controller: emailController,
                             validator: (value) {
                               if (value!.isEmpty) {
@@ -52,7 +49,7 @@ class _TelaEntrarState extends State<TelaEntrar> {
                                 return 'Você precisa de um e-mail válido.';
                               }
                             },
-                            cursorColor: const Color(0xFF10397B),//barrinha que aparece quando vai digitar
+                            cursorColor: const Color(0xFF10397B),
                             decoration: buildInputDecoration(
                               'EMAIL',
                               Icons.mail_outline_outlined,

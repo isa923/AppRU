@@ -1,6 +1,7 @@
 import 'package:untitled/db/shared_prefs.dart';
 import 'package:untitled/db/user_dao.dart';
 import 'package:untitled/pages/TelaCategoria.dart';
+import 'package:untitled/pages/home_pageN.dart';
 import 'package:untitled/pages/register_page.dart';
 import 'package:flutter/material.dart';
 
@@ -169,9 +170,7 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   Future<void> onPressed() async {
-    // Validar os campos de e-mail e senha
     if (formKey.currentState!.validate()) {
-      // Recuperar os dados dos TextFormFields
       String email = emailController.text;
       String senha = senhaController.text;
 
@@ -179,13 +178,11 @@ class _LoginPageState extends State<LoginPage> {
 
       if (auth) {
         SharedPrefs().setUser(true);
-
-        // Navegar p/ HomePage
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(
             builder: (context) {
-              return TelaCategoria();
+              return HomePageN();
             },
           ),
         );

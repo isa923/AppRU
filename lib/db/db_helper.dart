@@ -5,7 +5,7 @@ import 'package:sqflite/sqflite.dart';
 class DBHelper {
   Future<Database> initDB() async {
     String path = await getDatabasesPath();
-    String dbPath = join(path, "comidas.db");
+    String dbPath = join(path, "user3.db");
     Database  database = await openDatabase(
       dbPath,
       version: 1,
@@ -101,13 +101,37 @@ class DBHelper {
     "INSERT INTO COMIDAS (id, titulo, descricao, url_imagem, categoria) VALUES (20, 'CACHORRO QUENTE','Salsicha e carne moída.','https://tse4.mm.bing.net/th?id=OIP.MdPXHO78FlbUqc-fcwLm-gHaFj&pid=Api&P=0&h=180','Salgados');";
     await db.execute(sql);
 
-    sql = "CREATE TABLE USER (username varchar(100) PRIMARY KEY, password varchar(100))";
+    sql =
+    "CREATE TABLE USER (username varchar(100) PRIMARY KEY, password varchar(100))";
     await db.execute(sql);
 
-    sql = "INSERT INTO USER (username, password) VALUES ('joao@gmail.com', '123456')";
+    sql =
+    "INSERT INTO USER (username, password) VALUES ('joao@gmail.com', '123456')";
     await db.execute(sql);
 
+    sql =
+    'CREATE TABLE ALMOCO (id INTEGER PRIMARY KEY, urlImagem varchar(100), titulo varchar(100), Descricao varchar(100), opcao varchar(100), adc varchar(100), valor double, hora varchar(100), localizacao varchar(100));';
+    await db.execute(sql);
 
+    sql =
+    "INSERT INTO ALMOCO (urlImagem, titulo, Descricao, opcao, adc, valor, hora, localizacao) VALUES ( 'https://4.bp.blogspot.com/-X6QtAszOA6g/W8PuxmtYfNI/AAAAAAAAgDc/PqJzyNpt9EUbo55Nh7uCXWptQne5W-dcQCLcBGAs/s1600/prato-de-comida.jpg','TRADICIONAL','SERVE 2 PESSOAS','COMPRAR', 'COMPLEMENTOS', 2.99,'DAS 08 - 22H','ARAPIRACA')";
+    await db.execute(sql);
 
+    sql =
+    "INSERT INTO ALMOCO (urlImagem, titulo, Descricao, opcao, adc, valor, hora, localizacao) VALUES ( 'https://4.bp.blogspot.com/-9gFQoJ4IlAE/WyLSu9fqNhI/AAAAAAAAND0/3Ab_DDh-CO0e7D3VWiND0MrkFLGt5nT-ACLcBGAs/s1600/strogonoff-de-frango.jpg','ESTROGONOFF', 'SERVE 2 PESSOAS', 'COMPRAR', 'COMPLEMENTOS',1.99,'DAS 08 - 22H','ARAPIRACA')";
+    await db.execute(sql);
+
+    sql =
+    "INSERT INTO ALMOCO (urlImagem, titulo, Descricao, opcao, adc, valor, hora, localizacao) VALUES (  'https://img.freepik.com/photos-gratuite/plat-typique-bresilien-appele-feijoada-fait-haricots-noirs-du-porc-saucisses-vue-dessus_261158-1563.jpg?size=626&ext=jpg','FEIJOADA','SERVE 3 PESSOAS','COMPRAR','COMPLEMENTOS',2.99,'DAS 08 - 22H','ARAPIRACA')";
+    await db.execute(sql);
+
+    sql =
+    "INSERT INTO ALMOCO (urlImagem, titulo, Descricao, opcao, adc, valor, hora, localizacao) VALUES ( 'https://www.stayathomemum.com.au/wp-content/uploads/2019/08/bigstock-Shepherd-s-pie-59840420.jpg','ESCONDIDIHO','SERVE 1 PESSOA','COMPRAR', 'COMPLEMENTOS', 1.99,'DAS 08 - 22H','ARAPIRACA')";
+    await db.execute(sql);
+
+    sql =
+    "INSERT INTO ALMOCO (urlImagem, titulo, Descricao, opcao, adc, valor, hora, localizacao) VALUES ('https://www.comidaereceitas.com.br/wp-content/uploads/2017/09/feijoada3-780x439.jpg','LASANHA','SERVE 1 PESSOA','COMPRAR','COMPLEMENTOS', 1.99,'DAS 08 - 22H','ARAPIRACA')";
+    await db.execute(sql);
   }
+
 }

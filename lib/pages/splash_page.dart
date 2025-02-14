@@ -24,7 +24,7 @@ class _SplashPageState extends State<SplashPage> {
     if (userStatus) {
       Navigator.pushReplacement(context, MaterialPageRoute(
         builder: (context) {
-          return const TelaCategoria();
+          return const LoginPage();
         },
       ));
     } else {

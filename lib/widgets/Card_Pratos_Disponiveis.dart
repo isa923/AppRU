@@ -1,6 +1,5 @@
 import 'package:untitled/domain/pratos_almoco.dart';
 import 'package:flutter/material.dart';
-import 'package:untitled/pages/complementos.dart';
 
 class CardPratosDisponiveis extends StatefulWidget {
   final OpcoesAlmoco pratosDisponiveis;
@@ -34,6 +33,7 @@ class _CardPratosDisponiveis extends State<CardPratosDisponiveis> {
 
   @override
   Widget build(BuildContext context) {
+    print(pratos.urlImagem);
     return InkWell(
       child: Card(
         color: Colors.white,
@@ -84,29 +84,8 @@ class _CardPratosDisponiveis extends State<CardPratosDisponiveis> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      TextButton(
-                        onPressed: () {
-                          // Navega para a tela complementos
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) {
-                                return Complementos(pratos);
-                              },
-                            ),
-                          );
-                        },
-                        child: Text(
-                          pratos.adc,
-                          style: const TextStyle(
-                            fontWeight: FontWeight.normal,
-                            fontSize: 12,
-                            color: Colors.black,
-                          ),
-                        ),
-                      ),
                       Text(
-                        pratos.Descricao,
+                        pratos.descricao,
                         style: TextStyle(
                           fontWeight: FontWeight.normal,
                           fontSize: 12,

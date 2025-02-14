@@ -1,7 +1,11 @@
+import 'package:untitled/api/address_api.dart';
 import 'package:untitled/db/user_dao.dart';
+import 'package:untitled/domain/estado.dart';
 import 'package:untitled/domain/user.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+
+
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({super.key});
@@ -14,8 +18,10 @@ class _RegisterPageState extends State<RegisterPage> {
   TextEditingController emailController = TextEditingController();
   TextEditingController senhaController = TextEditingController();
   TextEditingController confirmSenhaController = TextEditingController();
+  TextEditingController DDDController = TextEditingController();
 
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
+
 
   @override
   Widget build(BuildContext context) {
@@ -90,8 +96,21 @@ class _RegisterPageState extends State<RegisterPage> {
                   decoration: buildInputDecoration('Confirmação de Senha'),
                   cursorColor: const Color(0xFFFF5757),
                 ),
+
+                const SizedBox(height: 16),
+                TextFormField(
+                  controller: DDDController,
+                  decoration: buildInputDecoration(
+                    'DDD',
+                    suffixIcon: IconButton(
+                      onPressed: onPressedDDDButton,
+                      icon: const Icon(Icons.search),
+                    ),
+                  ),
+                  cursorColor: const Color(0xFF10397B),
+                ),
+
                 const SizedBox(height: 32),
-                // Spacer(),
                 ElevatedButton(
                   onPressed: onPressed,
                   style: ElevatedButton.styleFrom(
@@ -119,9 +138,29 @@ class _RegisterPageState extends State<RegisterPage> {
       ),
     );
   }
+  Future<void> onPressedDDDButton() async {
+    String ddd = DDDController.text;
+    try {
+      Estado estado = await EstadoApi().findEstadoByDDD(ddd);
+      DDDController.text = estado.state; // Atualiza o campo com o estado correspondente
+      print(estado.state);
+    } catch (e) {
+      showSnackBar('Ocorreu um problema inesperado!');
+    }
+  }
 
-  buildInputDecoration(String name) {
+  showSnackBar(String snackBarMessage) {
+    SnackBar snackBar = SnackBar(
+      content: Text(snackBarMessage),
+    );
+
+    ScaffoldMessenger.of(context).showSnackBar(snackBar);
+  }
+
+
+  buildInputDecoration(String name, {Widget? suffixIcon}) {
     return InputDecoration(
+      suffixIcon: suffixIcon,
       label: Text(name),
       floatingLabelStyle: GoogleFonts.montserrat(
         color: const Color(0xFFFF5757),
@@ -141,7 +180,6 @@ class _RegisterPageState extends State<RegisterPage> {
   }
 
   Future<void> onPressed() async {
-    // Validar o Form
     if (formKey.currentState!.validate()) {
       String email = emailController.text;
       String senha = senhaController.text;
