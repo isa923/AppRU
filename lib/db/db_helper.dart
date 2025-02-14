@@ -6,7 +6,7 @@ class DBHelper {
   Future<Database> initDB() async {
     String path = await getDatabasesPath();
     String dbPath = join(path, "comidas.db");
-    Database  database = await openDatabase(
+    Database database = await openDatabase(
       dbPath,
       version: 1,
       onCreate: onCreate,

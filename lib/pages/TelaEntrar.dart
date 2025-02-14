@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:untitled/NOVO/NovaCategoria.dart';
 import 'package:untitled/pages/TelaCategoria.dart';
 
 class TelaEntrar extends StatefulWidget {
@@ -28,7 +29,7 @@ class _TelaEntrarState extends State<TelaEntrar> {
                 children: [
                   Center(
                     child: Image.asset(
-                      "assets/LogoCinza.jpeg",
+                      "assets/logoCinza.jpeg",
                       height: 200,
                     ),
                   ),
@@ -91,7 +92,7 @@ class _TelaEntrarState extends State<TelaEntrar> {
                                     context,
                                     MaterialPageRoute(
                                       builder: (context) {
-                                        return TelaCategoria();
+                                        return Novacategoria();
                                       },
                                     ),
                                   );

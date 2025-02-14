@@ -9,7 +9,7 @@ class Database {
         descricao: 'Sopa fitness de legumes para o jantar',
         valorAntigo: 4.99,
         valorAtual: 1.99,
-        estabelecimento: 'Panificadora Rio Branco',
+        cidade: 'Maceió',
         avaliacao: '4.8 (281)',
         detalhes:
         'Sopa composta por batatinha, cenoura, carne de gado, coentro'),
@@ -20,7 +20,7 @@ class Database {
         titulo: 'CUSCUZ',
         valorAntigo: 3.99,
         valorAtual: 1.99,
-        estabelecimento: 'Restaurante do Dudu',
+        cidade: 'Craíbas',
         avaliacao: '4.9 (1231)',
         detalhes: 'Cuscuz composto por queijo, carne...'),
     Comidas(
@@ -30,7 +30,7 @@ class Database {
         descricao: 'Conheça a lasanha mais saborosa de todas',
         valorAntigo: 4.99,
         valorAtual: 3.99,
-        estabelecimento: 'Panificadora da Ritinha',
+        cidade: 'Arapiraca',
         avaliacao: '4.8 (341)',
         detalhes: 'Lasanha composta por macarrao, queijo, presunto, carne..'),
     Comidas(
@@ -40,7 +40,7 @@ class Database {
         descricao: 'Conheça a melhor massa de panqueca caseira',
         valorAntigo: 4.99,
         valorAtual: 1.99,
-        estabelecimento: 'Restaurante João de Barro',
+        cidade: 'Anadia',
         avaliacao: '4.7 (1067)',
         detalhes: 'Panqueca composta por massa, queijo e frango'),
     Comidas(
@@ -50,7 +50,7 @@ class Database {
         descricao: 'Prove o melhor arroz de forno da região',
         valorAntigo: 4.99,
         valorAtual: 2.99,
-        estabelecimento: 'Pratos da Ana',
+        cidade: 'Feira Grande',
         avaliacao: '4.8 (677)',
         detalhes:
         'Arroz de forno composto por arroz, queijo, presunto, frango, milho verde e orégano')

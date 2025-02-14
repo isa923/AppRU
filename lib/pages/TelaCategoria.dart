@@ -118,7 +118,7 @@ class _TelaCategoriaState extends State<TelaCategoria> {
           ],
         ),
         const SizedBox(height: 24),
-        // Segunda linha de categorias
+
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -176,7 +176,6 @@ class _TelaCategoriaState extends State<TelaCategoria> {
           ],
         ),
         const SizedBox(height: 32),
-        // Terceira linha de categorias
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -184,7 +183,6 @@ class _TelaCategoriaState extends State<TelaCategoria> {
               children: [
                 InkWell(
                   onTap: () {
-                    // Adicione a lógica de navegação aqui, se necessário
                   },
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(10.0),
@@ -205,7 +203,6 @@ class _TelaCategoriaState extends State<TelaCategoria> {
               children: [
                 InkWell(
                   onTap: () {
-                    // Adicione a lógica de navegação aqui, se necessário
                   },
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(10.0),

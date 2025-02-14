@@ -39,6 +39,9 @@ dependencies:
   shared_preferences:
   path: ^1.9.0
   sqflite: ^2.3.3+1
+  google_maps_flutter:
+  geocoding:
+  dio: ^5.7.0
 
 dev_dependencies:
   flutter_test:

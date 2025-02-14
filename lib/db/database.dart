@@ -1,4 +1,4 @@
-import 'package:untitled/domain/NovasComidas.dart';
+/*import 'package:untitled/domain/NovasComidas.dart';
 
 class Database {
   static List Comidas = [
@@ -143,4 +143,4 @@ class Database {
       categoria: 'Salgados',
     ),
   ];
-}
+}*/

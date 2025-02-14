@@ -1,6 +1,9 @@
 import 'package:untitled/domain/comidas.dart';
+import 'package:geocoding/geocoding.dart';
 import 'package:untitled/pages/datail_page.dart';
 import 'package:flutter/material.dart';
+
+import '../pages/map_page.dart';
 
 class CardComidas extends StatefulWidget {
   final Comidas comidas;
@@ -36,10 +39,8 @@ class _CardComidasState extends State<CardComidas> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 360,
-      height: 200, // Define uma largura fixa para o cartão
       margin: const EdgeInsets.symmetric(
-          horizontal: 8), // Espaçamento entre os cartões
+          horizontal: 3),
       child: InkWell(
         onTap: () {
           Navigator.push(
@@ -59,17 +60,17 @@ class _CardComidasState extends State<CardComidas> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisSize: MainAxisSize
-                .min, // Garante que o cartão só ocupe o espaço necessário
+                .min,
             children: [
               ClipRRect(
                 borderRadius: BorderRadius.vertical(top: Radius.circular(4)),
                 child: Image.network(
                   pacote.urlImagem,
                   fit:
-                  BoxFit.cover, // Ajusta a imagem ao espaço sem ultrapassar
+                  BoxFit.cover,
                   height:
-                  220, // Ajusta a altura da imagem para um valor mais fixo
-                  width: double.infinity, // Usa toda a largura disponível
+                  200,
+                  width: double.infinity,
                 ),
               ),
               Padding(
@@ -147,11 +148,28 @@ class _CardComidasState extends State<CardComidas> {
                     SizedBox(height: 4),
                     Row(
                       children: [
-                        Expanded(
+                       /* Expanded(
                           child: Text(
-                            pacote.estabelecimento,
+                            pacote.cidade,
                             overflow: TextOverflow
-                                .ellipsis, // Limita o texto ao espaço disponível
+                                .ellipsis,
+                          ),
+                        ),*/
+                        TextButton(
+                          onPressed: () async {
+
+                            List<Location> locations = await locationFromAddress(pacote.cidade);
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) {
+                                  return MapPage(location: locations[0]);
+                                },
+                              ),
+                            );
+                          },
+                       child: Text(
+                           'Maceió',
                           ),
                         ),
                         SizedBox(width: 8),
