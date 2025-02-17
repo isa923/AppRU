@@ -71,7 +71,7 @@ class _RegisterPackageState extends State<RegisterPackage> {
           const SizedBox(height: 8),
           ElevatedButton(
             style: ElevatedButton.styleFrom(
-              backgroundColor: const Color(0xFF3F68F7),
+              backgroundColor: const Color(0xFFFF5757),
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(5.0),
               ),
@@ -101,7 +101,7 @@ class _RegisterPackageState extends State<RegisterPackage> {
         controller: controller,
         validator: fieldValidator,
         decoration: buildInputDecoration(text),
-        cursorColor: const Color(0xFF10397B),
+        cursorColor: const Color(0xFFFF5757),
       ),
     );
   }
@@ -117,7 +117,7 @@ class _RegisterPackageState extends State<RegisterPackage> {
   buildAppBar() {
     return AppBar(
       centerTitle: false,
-      backgroundColor: const Color(0xFF10397B),
+      backgroundColor: const Color(0xFFFF5757),
       iconTheme: const IconThemeData(
         color: Colors.white, //change your color here
       ),
@@ -135,7 +135,7 @@ class _RegisterPackageState extends State<RegisterPackage> {
     return InputDecoration(
       label: Text(name),
       floatingLabelStyle: GoogleFonts.montserrat(
-        color: const Color(0xFF10397B),
+        color: const Color(0xFFFF5757),
         fontWeight: FontWeight.w600,
       ),
       border: OutlineInputBorder(
@@ -145,7 +145,7 @@ class _RegisterPackageState extends State<RegisterPackage> {
         borderRadius: BorderRadius.circular(8),
         borderSide: const BorderSide(
           width: 2,
-          color: Color(0xFF10397B),
+          color: Color(0xFFFF5757),
         ),
       ),
     );

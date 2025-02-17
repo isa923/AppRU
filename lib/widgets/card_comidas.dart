@@ -148,28 +148,20 @@ class _CardComidasState extends State<CardComidas> {
                     SizedBox(height: 4),
                     Row(
                       children: [
-                       /* Expanded(
-                          child: Text(
-                            pacote.cidade,
-                            overflow: TextOverflow
-                                .ellipsis,
-                          ),
-                        ),*/
                         TextButton(
                           onPressed: () async {
-
                             List<Location> locations = await locationFromAddress(pacote.cidade);
                             Navigator.push(
                               context,
                               MaterialPageRoute(
                                 builder: (context) {
-                                  return MapPage(location: locations[0]);
+                                  return MapPage(localizacao: locations[0]);
                                 },
                               ),
                             );
                           },
                        child: Text(
-                           'Maceió',
+                           'Ver local do estabelecimento',
                           ),
                         ),
                         SizedBox(width: 8),

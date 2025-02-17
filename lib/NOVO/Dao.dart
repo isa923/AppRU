@@ -2,7 +2,6 @@ import 'package:untitled/NOVO/DB_helper.dart';
 import 'package:untitled/domain/comidas.dart';
 import 'package:sqflite/sqflite.dart';
 
-
 class Dao {
 
   salvarFood(Comidas food) async {
@@ -22,6 +21,7 @@ class Dao {
       lista.add(food);
     }
 
+    await Future.delayed(const Duration(seconds: 4));
     return lista;
   }
 

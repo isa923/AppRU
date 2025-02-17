@@ -33,8 +33,7 @@ class _HomePageState extends State<HomePage> {
             return const Center(child: Text('Ocorreu um erro inesperado!'));
           }
           if (snapshot.hasData) {
-            print('TESTE');
-            List<Comidas> listaComidas = snapshot.data ?? [];
+            List<Comidas> listaComidas = snapshot.data!;
             return buildListView(listaComidas);
           }
           return const Center(
@@ -59,28 +58,27 @@ class _HomePageState extends State<HomePage> {
             );
           },
         ),
-
       ],
     );
   }
 
   buildAppBar() {
     appBar:
-    AppBar(
-      backgroundColor: const Color(0xFFFFFFFF),
+   return AppBar(
+      backgroundColor: const Color(0xFFFF5757),
       title: const Text(
         'JANTAR',
         style: TextStyle(
           fontWeight: FontWeight.w500,
           fontSize: 22,
-          color: Colors.black,
+          color: Colors.white,
         ),
       ),
     );
   }
 
   buildBarraNavegacao() {
-   return  Row(
+      return Row(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: <Widget>[
         Column(

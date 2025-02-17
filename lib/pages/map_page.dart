@@ -5,9 +5,9 @@ import 'package:geocoding/geocoding.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class MapPage extends StatefulWidget {
-  Location location;
+  Location localizacao;
 
-  MapPage({super.key, required this.location});
+  MapPage({super.key, required this.localizacao});
 
   @override
   State<MapPage> createState() => MapSampleState();
@@ -23,8 +23,8 @@ class MapSampleState extends State<MapPage> {
         body: GoogleMap(
           mapType: MapType.normal,
           initialCameraPosition: CameraPosition(
-            target: LatLng(widget.location.latitude , widget.location.longitude),
-            zoom: 9,
+            target: LatLng(widget.localizacao.latitude , widget.localizacao.longitude),
+            zoom: 11,
           ),
           onMapCreated: (GoogleMapController controller) {
             _controller.complete(controller);
